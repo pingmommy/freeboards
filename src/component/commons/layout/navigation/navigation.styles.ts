@@ -11,4 +11,5 @@ export const Wrapper = styled.div`
 export const CategoryBox = styled.div`
   width: 150px;
   line-height: 64px;
+  cursor: pointer;
 `;

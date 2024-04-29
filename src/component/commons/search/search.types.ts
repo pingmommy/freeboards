@@ -1,4 +1,4 @@
-import type { MouseEvent } from "react";
+import type { ChangeEvent } from "react";
 import type {
   IQuery,
   IQueryFetchBoardsArgs,
@@ -6,17 +6,17 @@ import type {
 } from "../../../commons/types/generated/types";
 import type { ApolloQueryResult } from "@apollo/client";
 
-export interface BoardListUIIProps {
-  onClickMoveToBoardNew: () => void;
-  onClickMoveToBoardDetail: (event: MouseEvent<HTMLDivElement>) => void;
-  onchangeKeyword: (value: string) => void;
+export interface ISearchKeywordProps {
   refetch: (
     variables?: Partial<IQueryFetchBoardsArgs> | undefined,
   ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchBoards">>>;
   refetchCount: (
     variables?: Partial<IQueryFetchBoardsCountArgs> | undefined,
   ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchBoardsCount">>>;
-  data?: Pick<IQuery, "fetchBoards">;
-  count?: number;
-  keyword: string;
+  onchangeKeyword: (value: string) => void;
+}
+
+export interface ISearchKeywordUIProps {
+  onchangeSearch: (event: ChangeEvent<HTMLInputElement>) => void;
+  onclickSearch: () => void;
 }

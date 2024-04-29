@@ -8,7 +8,7 @@ export default function LayoutNavigation(): JSX.Element {
   const onclickMenu = (event: MouseEvent<HTMLDivElement>): void => {
     console.log(event.currentTarget.id);
 
-    void router.push(`/${event.currentTarget.id}`);
+    void router.push(`${event.currentTarget.id}`);
   };
   return <LayoutNavigationUI onclickMenu={onclickMenu} />;
 }

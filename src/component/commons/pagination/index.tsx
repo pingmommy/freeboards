@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { MouseEvent } from "react";
 import type {
   IQuery,
@@ -11,13 +11,17 @@ interface IPaginationProps {
     variables?: Partial<IQueryFetchBoardsArgs> | undefined,
   ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchBoards">>>;
 
-  boardCount?: Pick<IQuery, "fetchBoardsCount">;
+  count?: number;
 }
 
 export default function Pagination(props: IPaginationProps): JSX.Element {
   const [startPage, setStartPage] = useState(1);
 
-  const lastPage = Math.ceil(props.boardCount?.fetchBoardsCount ?? 10) / 10;
+  const lastPage = Math.ceil((props.count ?? 10) / 10);
+
+  useEffect(() => {
+    setStartPage(1);
+  }, [props.count]);
 
   const onClickPage = (event: MouseEvent<HTMLSpanElement>): void => {
     void props.refetch({ page: Number(event.currentTarget.id) });
@@ -35,6 +39,7 @@ export default function Pagination(props: IPaginationProps): JSX.Element {
       setStartPage(startPage + 10);
       void props.refetch({ page: startPage + 10 });
     }
+    console.log(lastPage);
   };
 
   return (
