@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { ChangeEvent } from "react";
 import UserLogInUI from "./login.presenter";
 import { gql, useMutation } from "@apollo/client";
@@ -9,6 +9,7 @@ import type {
   IMutationLoginUserArgs,
 } from "../../../commons/types/generated/types";
 import { useRouter } from "next/router";
+import { object, string } from "yup";
 
 const LOGIN_USER = gql`
   mutation loginUser($password: String!, $email: String!) {
@@ -17,6 +18,11 @@ const LOGIN_USER = gql`
     }
   }
 `;
+
+const User = object({
+  email: string().email("이메일 형식에 맞지 않습니다.").required(),
+  password: string().min(4, "최소 4자리이상 입력하세요.").required(),
+});
 
 export default function UserLogIn(): JSX.Element {
   const router = useRouter();
@@ -29,6 +35,10 @@ export default function UserLogIn(): JSX.Element {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  useEffect(() => {
+    localStorage.removeItem("accessToken");
+  }, []);
+
   const onchangeEmail = (event: ChangeEvent<HTMLInputElement>): void => {
     setEmail(event.target.value);
   };
@@ -39,6 +49,7 @@ export default function UserLogIn(): JSX.Element {
 
   const onclickSubmit = async (): Promise<void> => {
     try {
+      await User.validate({ email, password });
       const result = await loginUser({
         variables: {
           email,
@@ -46,7 +57,7 @@ export default function UserLogIn(): JSX.Element {
         },
       });
       const accessToken = result?.data?.loginUser?.accessToken;
-      console.log(accessToken);
+      // console.log(accessToken);
 
       if (accessToken === undefined) {
         alert("에러네요!");
@@ -54,6 +65,7 @@ export default function UserLogIn(): JSX.Element {
       }
       setAccessToken(accessToken);
       setIsLogged(false);
+      localStorage.setItem("accessToken", accessToken);
       void router.push("/boards");
     } catch (error) {
       if (error instanceof Error) {

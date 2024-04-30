@@ -10,7 +10,7 @@ export default function LayoutNavigationUI(
 ): JSX.Element {
   const menu = [
     { menuName: "자유게시판", _id: "/boards" },
-    { menuName: "중고마켓", _id: "/loginSuccess" },
+    { menuName: "중고마켓", _id: "/products" },
     { menuName: "마이페이지", _id: "/myboards" },
     { menuName: "강아지사진", _id: "/dogs" },
   ];

@@ -4,7 +4,7 @@ import { CaretDownOutlined } from "@ant-design/icons";
 export const Wrapper = styled.div`
   height: 100px;
   margin-top: 30px;
-  width: 1920px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;

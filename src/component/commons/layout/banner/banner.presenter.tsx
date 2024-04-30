@@ -49,7 +49,7 @@ export default function LayoutBannerUI(): JSX.Element {
     nextArrow: <CustomNextArrow onClick={undefined} />,
   };
   return (
-    <div style={{ width: "1920px" }}>
+    <div style={{ width: "100%" }}>
       <Slider {...settings}>
         <div>
           <img src="/images/freeboardBanner.png" alt="" />
