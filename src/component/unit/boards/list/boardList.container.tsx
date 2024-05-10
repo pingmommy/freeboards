@@ -8,7 +8,7 @@ import type {
   IQuery,
   IQueryFetchBoardsArgs,
   IQueryFetchBoardsCountArgs,
-} from "../../../commons/types/generated/types";
+} from "../../../../commons/types/generated/types";
 
 export default function BoardList(): JSX.Element {
   const [keyword, setKeyword] = useState("");

@@ -3,7 +3,7 @@ import type {
   IQuery,
   IQueryFetchBoardsArgs,
   IQueryFetchBoardsCountArgs,
-} from "../../../commons/types/generated/types";
+} from "../../../../commons/types/generated/types";
 import type { ApolloQueryResult } from "@apollo/client";
 
 export interface BoardListUIIProps {

@@ -2,7 +2,7 @@ import type { BoardWriteUIIProps } from "./boardWrite.types";
 import * as S from "./boardWrite.styles";
 import { Modal } from "antd";
 import DaumPostcodeEmbed from "react-daum-postcode";
-import UploadImage from "../../commons/uploadImg/uploadImg.container";
+import UploadImage from "../../../commons/uploadImg/uploadImg.container";
 
 export default function BoardWriteUI(props: BoardWriteUIIProps): JSX.Element {
   return (

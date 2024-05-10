@@ -33,8 +33,6 @@ export const SignIn = styled.div`
 
 export const infoBox = styled.div`
   position: absolute;
-  width: 150px;
-  height: 100px;
   background-color: #ffffff;
   top: 60px;
   left: -38px;
@@ -43,17 +41,57 @@ export const infoBox = styled.div`
   box-shadow: 0px 0px 4px 0 #bdbdbd;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+`;
+export const infoAvatar = styled.img`
+  width: 48px;
+  height: 48px;
 `;
 
-export const infoSpan = styled.span`
+export const infoAvatarWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0 5px;
+`;
+
+export const infoName = styled.span`
   text-align: center;
+  font-weight: 600;
+`;
+export const infoPoint = styled.span`
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 3px;
 `;
 
 export const infoLine = styled.div`
   border: 1px solid #4f4f4f;
-  width: 90%;
+  width: 100%;
+`;
+
+export const infoFlexWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 20px 50px 20px 30px;
+  align-items: center;
+`;
+export const infoSavings = styled.img`
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+`;
+
+export const infoSpan = styled.span`
+  width: 100px;
+  color: #828282;
+  padding: 0px 0 0 15px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+
+  :hover {
+    text-decoration: underline;
+  }
 `;
 
 export const infoButton = styled(CaretDownOutlined)`

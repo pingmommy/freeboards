@@ -1,5 +1,5 @@
-import Pagination from "../../commons/pagination";
-import SearchKeyword from "../../commons/search/search.container";
+import Pagination from "../../../commons/pagination";
+import SearchKeyword from "../../../commons/search/search.container";
 import * as S from "./boardList.styles";
 import type { BoardListUIIProps } from "./boardList.types";
 import { v4 as uuidv4 } from "uuid";

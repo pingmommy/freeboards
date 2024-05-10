@@ -1,14 +1,22 @@
+import { useEffect } from "react";
 import { useMoveToPage } from "../../../commons/hooks/customs/useMoveToPage";
+import { useQueryIdChecker } from "../../../commons/hooks/customs/useQueryIdChecker";
 import { useUsedItem } from "../../../commons/hooks/customs/useUsedItem";
 import { useQueryFetchUsedItem } from "../../../commons/hooks/queries/useQueryFetchUseditem";
 import * as S from "./detail.styles";
-
+import { getMap } from "../../../commons/getMap";
+import DOMPurify from "dompurify";
 export default function ProductDetail() {
-  const { data } = useQueryFetchUsedItem();
-  // console.log(data);
+  const { id } = useQueryIdChecker("productId");
 
-  const { onclickDeleteUsedItem } = useUsedItem();
+  const { data } = useQueryFetchUsedItem(id);
+
+  const { onclickDeleteUsedItem } = useUsedItem(id);
   const { onclickMoveToPage } = useMoveToPage();
+
+  useEffect(() => {
+    getMap();
+  }, []);
 
   return (
     <S.Wrapper>
@@ -25,11 +33,18 @@ export default function ProductDetail() {
       </S.Header>
       <S.Body>
         <S.Title>{data?.fetchUseditem?.name}</S.Title>
-        <S.Contents>{data?.fetchUseditem?.contents}</S.Contents>
+        {typeof window !== "undefined" && (
+          <S.Contents
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(data?.fetchUseditem?.contents ?? ""),
+            }}
+          ></S.Contents>
+        )}
+        <S.Map id="map"></S.Map>
       </S.Body>
       <S.Footer>
         <S.ButtonWrapper>
-          <S.Button>목록으로</S.Button>
+          <S.Button onClick={onclickMoveToPage("/products")}>목록으로</S.Button>
           <S.Button
             onClick={onclickMoveToPage(
               `/products/${data?.fetchUseditem?._id}/edit`,

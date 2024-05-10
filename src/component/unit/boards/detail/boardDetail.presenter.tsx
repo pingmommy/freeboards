@@ -2,7 +2,7 @@ import type { BoardDetailUIIProps } from "./boardDetail.types";
 import * as S from "./boardDetail.styles";
 import ReactPlayer from "react-player";
 import { Tooltip } from "antd";
-import LikeBoard from "../likeBoard/likeBoard.container";
+import LikeBoard from "../../likeBoard/likeBoard.container";
 export default function BoardDetailUI(props: BoardDetailUIIProps): JSX.Element {
   return (
     <S.Wrapper>

@@ -6,10 +6,10 @@ import { useMoveToPage } from "./useMoveToPage";
 interface IUseUsedItemReturn {
   onclickCreateUsedItem: (data: any) => Promise<void>;
   onclickDeleteUsedItem: () => void;
-  onclickUpdateUsedItem: (data: any, path: string) => Promise<void>;
+  onclickUpdateUsedItem: (data: any) => Promise<void>;
+  // onclickUpdateUsedItem: (data: any) => Promise<void>;
 }
-
-export const useUsedItem = (): IUseUsedItemReturn => {
+export const useUsedItem = (id?: string): IUseUsedItemReturn => {
   const { movePage } = useMoveToPage();
   const [createUsedItem] = useMutationCreateUsedItem();
   const [deleteUsedItem] = UseMutationDeleteUsedItem();
@@ -17,7 +17,10 @@ export const useUsedItem = (): IUseUsedItemReturn => {
 
   const onclickDeleteUsedItem = () => {
     try {
-      void deleteUsedItem();
+      void deleteUsedItem({
+        variables: { useditemId: id ?? "" },
+      });
+      movePage("/products");
     } catch (error) {
       if (error instanceof Error) {
         alert(error.message);
@@ -38,18 +41,18 @@ export const useUsedItem = (): IUseUsedItemReturn => {
     }
   };
 
-  const onclickUpdateUsedItem = async (data: any, path: string) => {
+  const onclickUpdateUsedItem = async (data: any) => {
     try {
       const result = await updateUsedItem({
         variables: {
           updateUseditemInput: {
-            contents: "작은컵이에요.",
-            name: "컵 팔아요.",
+            ...data,
           },
-          useditemId: path,
+          useditemId: id ?? "",
         },
       });
-      console.log(result);
+
+      movePage(`/products/${result?.data?.updateUseditem?._id}`);
     } catch (error) {
       if (error instanceof Error) {
         alert(error.message);

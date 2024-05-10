@@ -11,6 +11,7 @@ const CREATE_USED_ITEM = gql`
       _id
       name
       remarks
+      price
       contents
     }
   }

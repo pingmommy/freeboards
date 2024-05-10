@@ -53,6 +53,10 @@ export const Contents = styled.div`
   padding: 10px;
 `;
 
+export const Map = styled.div`
+  width: 384px;
+  height: 252px;
+`;
 export const UploadImg = styled.img`
   width: 500px;
   height: 300px;

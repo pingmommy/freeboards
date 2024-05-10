@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-
+export const Form = styled.form``;
 export const wrapper = styled.div`
   width: 1100px;
   padding-top: 80px;
@@ -22,7 +22,7 @@ export const titleWrapper = styled.div`
 
 export const innerWrapper = styled.div`
   padding-top: 20px;
-  // border: 1px solid red;
+  //border: 1px solid red;
 `;
 
 export const PageTitle = styled.h2``;
@@ -43,16 +43,20 @@ export const Error = styled.div`
   color: red;
 `;
 
-export const Contents = styled.textarea`
+export const Contents = styled.div`
   width: 800px;
   height: 300px;
-  border-radius: 5px;
+  /* border-radius: 5px;
   font-size: 14px;
 
   padding: 10px;
-  border: 1px solid #bdbdbd;
+  border: 1px solid #bdbdbd; */
 `;
 
+export const Map = styled.div`
+  width: 384px;
+  height: 252px;
+`;
 export const Button = styled.button`
   margin-top: 30px;
   width: 179px;

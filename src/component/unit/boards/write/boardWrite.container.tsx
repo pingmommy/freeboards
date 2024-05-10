@@ -10,7 +10,7 @@ import type {
   IMutationCreateBoardArgs,
   IMutationUpdateBoardArgs,
   IUpdateBoardInput,
-} from "../../../commons/types/generated/types";
+} from "../../../../commons/types/generated/types";
 import type { Address } from "react-daum-postcode";
 // import { Modal } from "antd";
 export default function BoardWrite(props: BoardWriteIProps): JSX.Element {

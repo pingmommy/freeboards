@@ -7,7 +7,7 @@ import type {
   IMutationDeleteBoardArgs,
   IQuery,
   IQueryFetchBoardArgs,
-} from "../../../commons/types/generated/types";
+} from "../../../../commons/types/generated/types";
 
 export default function BoardDetail(): JSX.Element {
   const router = useRouter();

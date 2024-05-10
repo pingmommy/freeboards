@@ -5,8 +5,8 @@ import type {
 import { gql, useMutation } from "@apollo/client";
 
 const DELETE_USED_ITEM = gql`
-  mutation {
-    deleteUseditem(useditemId: "6630390b5d6eaa0029f7ef56")
+  mutation deleteUseditem($useditemId: ID!) {
+    deleteUseditem(useditemId: $useditemId)
   }
 `;
 
