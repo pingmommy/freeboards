@@ -30,7 +30,7 @@ export default function ApolloSetting(props: IApolloSettingProps): JSX.Element {
     },
   });
 
-  console.log(`여긴 아폴로! ${accessToken}`);
+  // console.log(`여긴 아폴로! ${accessToken}`);
 
   const client = new ApolloClient({
     link: ApolloLink.from([uploadLink]),

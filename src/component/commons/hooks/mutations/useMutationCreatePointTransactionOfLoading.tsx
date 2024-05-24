@@ -12,7 +12,7 @@ const CREATE_POINTTRANSACTIONOFLOADING = gql`
   }
 `;
 
-export const useMutationCreatePointTransactionOfLoading = () => {
+export const useMutationCreatePointTransactionOfLoading = async () => {
   const mutation = useMutation(CREATE_POINTTRANSACTIONOFLOADING);
 
   return mutation;

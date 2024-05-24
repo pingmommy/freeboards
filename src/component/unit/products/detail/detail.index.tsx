@@ -6,17 +6,32 @@ import { useQueryFetchUsedItem } from "../../../commons/hooks/queries/useQueryFe
 import * as S from "./detail.styles";
 import { getMap } from "../../../commons/getMap";
 import DOMPurify from "dompurify";
+import type { IUseditem } from "../../../../commons/types/generated/types";
+
 export default function ProductDetail() {
   const { id } = useQueryIdChecker("productId");
-
-  const { data } = useQueryFetchUsedItem(id);
 
   const { onclickDeleteUsedItem } = useUsedItem(id);
   const { onclickMoveToPage } = useMoveToPage();
 
+  const { data } = useQueryFetchUsedItem(id); //  쿼리를 통해 데이터가 들어오고 나서 qqq()를 실행해야 되는데..?
+
+  const qqq = (Ndata: IUseditem) => {
+    const products: IUseditem[] = JSON.parse(
+      localStorage.getItem("visitedProducts") ?? "[]",
+    );
+
+    const temp = products.filter((el) => el._id === Ndata._id);
+    if (temp.length >= 1) return;
+
+    products.push(Ndata);
+    localStorage.setItem("visitedProducts", JSON.stringify(products));
+  };
+
   useEffect(() => {
     getMap();
-  }, []);
+    if (data !== undefined) qqq(data.fetchUseditem);
+  }, [data]);
 
   return (
     <S.Wrapper>

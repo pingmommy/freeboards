@@ -52,8 +52,8 @@ export const Title = styled.div``;
 export const Contents = styled.div``;
 
 export const UploadImg = styled.img`
-  width: 500px;
-  height: 300px;
+  width: 996px;
+  height: 480px;
 `;
 
 export const BottomWrapper = styled.div`

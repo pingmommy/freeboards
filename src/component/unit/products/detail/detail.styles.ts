@@ -58,8 +58,8 @@ export const Map = styled.div`
   height: 252px;
 `;
 export const UploadImg = styled.img`
-  width: 500px;
-  height: 300px;
+  width: 996px;
+  height: 480px;
 `;
 
 export const Footer = styled.div``;

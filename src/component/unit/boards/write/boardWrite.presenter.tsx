@@ -53,25 +53,26 @@ export default function BoardWriteUI(props: BoardWriteUIIProps): JSX.Element {
         <S.Label>주소</S.Label>
         <S.ZipCodeWrapper>
           <S.ZipCode
+            readOnly
             value={
               props.zipcode !== ""
                 ? props.zipcode
                 : props.data?.fetchBoard?.boardAddress?.zipcode ?? ""
             }
-          ></S.ZipCode>
+          />
           <S.SearchButton onClick={props.onClickToggle}>
             우편번호검색
           </S.SearchButton>
-          {props.isModalOpen && (
-            <Modal
-              open={true}
-              onOk={props.onClickToggle}
-              onCancel={props.onClickToggle}
-            >
-              <DaumPostcodeEmbed onComplete={props.handleComplete} />
-            </Modal>
-          )}
         </S.ZipCodeWrapper>
+        {props.isModalOpen && (
+          <Modal
+            open={true}
+            onOk={props.onClickToggle}
+            onCancel={props.onClickToggle}
+          >
+            <DaumPostcodeEmbed onComplete={props.handleComplete} />
+          </Modal>
+        )}
         <S.Address
           value={
             props.address !== ""
@@ -79,9 +80,11 @@ export default function BoardWriteUI(props: BoardWriteUIIProps): JSX.Element {
               : props.data?.fetchBoard?.boardAddress?.address
           }
         ></S.Address>
-        <S.AddressDetail
+        <S.Address
           onChange={props.onChangeAddressDetail}
-          defaultValue={props.data?.fetchBoard?.boardAddress?.addressDetail}
+          defaultValue={
+            props.data?.fetchBoard?.boardAddress?.addressDetail ?? ""
+          }
         />
       </S.InputWrapper>
 
@@ -89,12 +92,12 @@ export default function BoardWriteUI(props: BoardWriteUIIProps): JSX.Element {
         <S.Label>유투브</S.Label>
         <S.YoutubeLink
           onChange={props.onChangeYoutubeUrl}
-          defaultValue={props.data?.fetchBoard?.youtubeUrl}
-        ></S.YoutubeLink>
+          defaultValue={props.data?.fetchBoard?.youtubeUrl ?? ""}
+        />
       </S.InputWrapper>
       <S.ImageWrapper>
         <S.Label>사진첨부</S.Label>
-        <div style={{ display: "flex" }}>
+        <S.ImageBox style={{ display: "flex" }}>
           {props.imgUrL?.map((el, index) => (
             <UploadImage
               key={index}
@@ -103,7 +106,7 @@ export default function BoardWriteUI(props: BoardWriteUIIProps): JSX.Element {
               onChangeFileUrl={props.onChangeFileUrl}
             />
           ))}
-        </div>
+        </S.ImageBox>
       </S.ImageWrapper>
       <S.OptionWrapper>
         <S.Label>메인설정</S.Label>

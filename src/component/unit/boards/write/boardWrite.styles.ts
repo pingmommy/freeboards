@@ -7,32 +7,32 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-items: center;
-  padding: 102px;
+  // padding: 80px 102px 100px 102px;
+  padding-top: 80px;
+  padding-left: 102px;
+  padding-right: 102px;
+  padding-bottom: 100px;
+  box-shadow: 0px 0px 10px gray;
+  margin: 70px auto;
 `;
 
 export const Title = styled.h1`
   text-align: center;
   margin: 0;
-  padding-bottom: 40px;
 `;
 
 export const WriterWrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-`;
-
-export const Label = styled.div`
-  font-size: 16px;
-  font-weight: 500;
-  padding-bottom: 16px;
+  padding-top: 40px;
 `;
 
 export const Writer = styled.input`
   border: 1px solid #bdbdbd;
   width: 486px;
   height: 52px;
-  margin-right: 10px;
   padding-left: 15px;
 `;
 
@@ -43,8 +43,14 @@ export const Password = styled.input`
   padding-left: 15px;
 `;
 
+export const Label = styled.div`
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 16px;
+`;
+
 export const InputWrapper = styled.div`
-  padding-bottom: 30px;
+  padding-top: 40px;
 `;
 
 export const Subject = styled.input`
@@ -58,32 +64,18 @@ export const Content = styled.textarea`
   border: 1px solid #bdbdbd;
   width: 996px;
   height: 520px;
-  padding-top: 20px;
-  padding-left: 15px;
-`;
-
-export const SubmitBtn = styled.button`
-  width: 179px;
-  height: 52px;
-  background-color: ${(props: ISubmitBtnProps) =>
-    props.isActive ? "#ffd600" : "none"};
-  padding: 14px 60px;
-  border: none;
+  padding: 14px;
 `;
 
 export const ZipCodeWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  padding-bottom: 20px;
-  justify-items: center;
-  align-items: center;
 `;
 export const ZipCode = styled.input`
   border: 1px solid #bdbdbd;
   width: 77px;
   height: 52px;
-  margin-right: 10px;
-  line-height: 52px;
+  padding-left: 15px;
 `;
 
 export const SearchButton = styled.button`
@@ -91,35 +83,30 @@ export const SearchButton = styled.button`
   height: 52px;
   background-color: black;
   color: white;
-  text-align: center;
-  padding: 14px 16px;
+  margin-left: 16px;
 `;
 
 export const Address = styled.input`
   border: 1px solid #bdbdbd;
   width: 998px;
   height: 52px;
-  margin-bottom: 20px;
-  line-height: 52px;
+  margin-top: 16px;
+  padding-left: 16px;
 `;
-
-export const AddressDetail = styled.input`
-  border: 1px solid #bdbdbd;
-  width: 998px;
-  height: 52px;
-  margin-bottom: 20px;
-  line-height: 52px;
-`;
-
 export const YoutubeLink = styled.input`
   border: 1px solid #bdbdbd;
   width: 996px;
   height: 52px;
+  padding-left: 16px;
 `;
 
 export const ImageWrapper = styled.div`
   width: 996px;
-  padding-bottom: 30px;
+  padding-top: 40px;
+`;
+
+export const ImageBox = styled.div`
+  display: flex;
 `;
 
 export const UploadButton = styled.div`
@@ -130,18 +117,16 @@ export const UploadButton = styled.div`
   color: #4f4f4f;
   outline: none;
   border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  cursor: pointer;
 `;
 
 export const OptionWrapper = styled.div`
   width: 996px;
-  padding-bottom: 30px;
+  padding-top: 40px;
 `;
 
 export const RadioInput = styled.input`
-  padding: 10px;
+  cursor: pointer;
 `;
 
 export const RadioLabel = styled.label`
@@ -153,3 +138,26 @@ export const ErrorMsg = styled.div`
   color: red;
   font-size: 13px;
 `;
+
+// mt
+// export const ButtonWrapper = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   padding-top: 80px;
+// `;
+
+export const SubmitBtn = styled.button`
+  width: 179px;
+  height: 52px;
+  background-color: ${(props: ISubmitBtnProps) =>
+    props.isActive ? "#ffd600" : "none"};
+  padding: 14px 60px;
+  border: none;
+  // mt - margin-left: 12px;
+  //mt - margin-right: 12px;
+`;
+
+// export const AddressModal = styled(Modal)``;
+
+// export const AddressSearchInput = styled(DaumPostcode)``;

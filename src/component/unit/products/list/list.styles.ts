@@ -3,11 +3,25 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   width: 1200px;
   margin: 100px;
+  // border: 1px solid red;
 `;
 export const Header = styled.div``;
 
-export const Body = styled.div``;
+export const Body = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
 
+export const listWrapper = styled.div`
+  width: 85%;
+`;
+
+export const visitedProductWrapper = styled.div`
+  width: 10%;
+  min-height: 500px;
+  border: 1px solid red;
+`;
 export const DividingLine = styled.div`
   border: 2px solid gray;
 `;
